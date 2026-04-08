@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Tracker - To Watch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Watched</a>
+        <a href="towatch.html">To Watch List</a>
+    </nav>
+
+    <div class="container">
+        <h2>Add to Watch List</h2>
+        <div class="quick-add-section">
+            <div class="inline-form">
+                <div>
+                    <label>Movie Title</label>
+                    <input type="text" id="new-title" placeholder="e.g. Interstellar">
+                </div>
+                <div>
+                    <label>Category</label>
+                    <select id="new-category">
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Horror">Horror</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Length</label>
+                    <input type="text" id="new-length" placeholder="e.g. 169 min">
+                </div>
+                <button class="btn-add-inline" onclick="addDirectToQueue()">Add Movie</button>
+            </div>
+        </div>
+
+        <hr>
+        <h2>My Queue</h2>
+        <div id="category-lists"></div>
+    </div>
+
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalMovieTitle">Rate Movie</h3>
+            <label>Date Watched</label>
+            <input type="date" id="modalDate">
+            <label>Rating (0-10)</label>
+            <input type="number" id="modalRating" step="0.1" min="0" max="10" value="7.0">
+            <div class="modal-buttons">
+                <button class="btn-save" onclick="submitFinalRating()">Submit & Move to Home</button>
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Movie Details</h3>
+            
+            <label>Movie Title</label>
+            <input type="text" id="editTitle">
+            
+            <label>Category</label>
+            <select id="editCategory">
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Horror">Horror</option>
+            </select>
+            
+            <label>Length</label>
+            <input type="text" id="editLength">
+            
+            <div class="modal-buttons">
+                <button class="btn-save" onclick="submitEdit()">Update Details</button>
+                <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

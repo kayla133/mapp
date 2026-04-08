@@ -1,0 +1,239 @@
+:root {
+    --primary: #2c3e50;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --input-height: 45px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Unified Width Wrapper */
+nav,
+.container {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    box-sizing: border-box;
+}
+
+nav {
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    flex: 1;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 18px;
+    text-align: center;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- FORM & ALIGNMENT FIXES --- */
+.quick-add-section {
+    background: #f1f4f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.inline-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.inline-form div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.inline-form label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input,
+select,
+.btn-add-inline {
+    height: var(--input-height);
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.btn-add-inline {
+    background: var(--success);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 20px;
+}
+
+/* --- MOVIE CARDS --- */
+.movie-card {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-card:last-child {
+    border-bottom: none;
+}
+
+.movie-info strong {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.movie-info small {
+    color: #888;
+}
+
+.category-header {
+    display: block;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-watch {
+    background: var(--success);
+    color: white;
+}
+
+.btn-edit {
+    background: var(--warning);
+    color: white;
+    margin-left: 5px;
+}
+
+.btn-delete {
+    background: var(--danger);
+    color: white;
+    margin-left: 5px;
+}
+
+/* --- MODALS --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-save {
+    background: var(--success);
+    color: white;
+    flex: 1;
+}
+
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
+    flex: 1;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 800px) {
+    .inline-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btn-add-inline {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .inline-form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-add-inline {
+        grid-column: span 1;
+    }
+
+    .movie-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .movie-card div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
